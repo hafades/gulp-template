@@ -1,0 +1,28 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  overflow: hidden;
+
+  &__content {
+    flex: 1;
+  }
+}
+
+.container {
+  width: 100%;
+  padding: 0 var(--spacing-small);
+
+  // @include breakpoint(tablet) {
+  //   padding: 0 var(--spacing-large);
+  // }
+
+  // @include breakpoint(laptop) {
+  //   padding: 0 var(--spacing-xx-large);
+  // }
+
+  // @include breakpoint(desktop) {
+  //   max-width: 1632px;
+  //   margin: 0 auto;
+  // }
+}

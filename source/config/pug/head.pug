@@ -1,0 +1,37 @@
+head
+  meta(charset="UTF-8")
+  meta(name="format-detection" content="telephone=no")
+  meta(http-equiv="X-UA-Compatible" content="IE=edge")
+  meta(name="viewport" content="width=device-width, initial-scale=1.0")
+
+  title= `${siteName}: ${pageName ? pageName : 'страница'}`
+
+  link(rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png")
+  link(rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png")
+  link(rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png")
+  link(rel="manifest" href="/favicon/site.webmanifest")
+  link(rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000")
+  link(rel="shortcut icon" href="/favicon/favicon.ico")
+  meta(name="msapplication-TileColor" content="#ffffff")
+  meta(name="msapplication-config" content="/favicon/browserconfig.xml")
+  meta(name="theme-color" content="#ffffff")
+
+  //- include _fonts
+
+  block styles
+    link(rel="stylesheet" href="./css/styles.min.css")
+
+    if styles
+      each styleName in styles
+        link(rel="stylesheet" href=`./css/${styleName}.min.css`)
+
+  block scripts
+    if scriptsAsync
+      each scriptName in scriptsAsync
+        script(src=`./js/${scriptName}.min.js` async)
+
+    script(src="./js/scripts.min.js" defer)
+
+    if scripts
+      each scriptName in scripts
+        script(src=`./js/${scriptName}.min.js` defer)

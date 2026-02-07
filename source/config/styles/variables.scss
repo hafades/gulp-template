@@ -1,0 +1,44 @@
+// breakpoint
+$breakpoint: (
+  minimal: 320px,
+  mobile: 480px,
+  tablet: 768px,
+  tablet-large: 960px,
+  laptop: 1280px,
+  desktop: 1440px,
+  large: 1600px,
+);
+
+// colors
+
+// fonst
+:root {
+  // font-weight
+  --font-weight-light: 300;
+  --font-weight-primary: 400;
+  --font-weight-strong: 700;
+
+  // font-size
+  --font-size-default: 1rem;
+
+  // line-height
+  --line-height-small: 1.2;
+  --line-height-medium: 1.5;
+  --line-height-large: 1.8;
+
+  // font-family
+  --font-family-primary: "Helvetica Neue", "Inter", sans-serif;
+  --font-family-secondary: "Futura", "Inter", sans-serif;
+}
+
+// transition
+:root {
+  // time
+  --transition-time-primary: .2s;
+
+  // function
+  --transition-function-primary: linear;
+
+  // transition
+  --transition-primary: var(--transition-time-primary) var(--transition-function-primary);
+}

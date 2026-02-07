@@ -1,0 +1,13 @@
+/build/
+/node_modules/
+
+/source/config/pug/**/_*
+/source/config/styles/**/_*
+
+*.sublime*
+.DS_Store
+.idea
+.vscode
+
+.npm-debug.*
+Thumbs.db

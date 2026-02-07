@@ -1,0 +1,5 @@
+/build
+/node_modules
+
+/source/config/styles/_icons/
+/source/config/styles/**/_*.scss

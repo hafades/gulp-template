@@ -1,0 +1,71 @@
+/* stylelint-disable property-no-vendor-prefix */
+
+// @mixin breakpoint($min: false, $max: false) {
+//   @if $min and $max {
+//     @media screen and (min-width: map.get($breakpoint, $min))
+//                   and (max-width: map.get($breakpoint, $max)) {
+//       @content;
+//     }
+//   } @else if $min == false and $max {
+//     @media screen and (max-width: map.get($breakpoint, $max)) {
+//       @content;
+//     }
+//   } @else {
+//     @media screen and (min-width: map.get($breakpoint, $min)) {
+//       @content;
+//     }
+//   }
+// }
+
+
+@mixin hover() {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+@mixin active() {
+  @media (hover: hover) {
+    &:active {
+      @content;
+    }
+  }
+}
+
+@mixin focus() {
+  @media (hover: hover) {
+    &:focus {
+      @content;
+    }
+  }
+}
+
+// @mixin icon($iconName, $spriteName: 'default-mono', $type: 'before') {
+//   &::#{$type} {
+//     display: inline-block;
+//     content: '';
+
+//     @if str-index($spriteName, 'mono') {
+//       background-color: currentcolor;
+//       -webkit-mask-image: url('../images/sprite-#{$spriteName}.svg##{$iconName}');
+//       mask-image: url('../images/sprite-#{$spriteName}.svg##{$iconName}');
+//       -webkit-mask-repeat: no-repeat;
+//       mask-repeat: no-repeat;
+//       -webkit-mask-position: center;
+//       mask-position: center;
+//       -webkit-mask-size: cover;
+//       mask-size: cover;
+//     } @else {
+//       background-color: transparent;
+//       background-image: url('../images/sprite-#{$spriteName}.svg##{$iconName}');
+//       background-repeat: no-repeat;
+//       background-position: center;
+//       background-size: cover;
+//     }
+
+//     @content;
+//   }
+// }
+
