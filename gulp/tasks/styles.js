@@ -1,7 +1,7 @@
 import { src, dest, watch, series } from "gulp";
 import plumber from "gulp-plumber";
 import notify from "gulp-notify";
-import dartSass from "sass";
+import * as dartSass from "sass";
 import gulpSass from "gulp-sass";
 import autoPrefixer from "gulp-autoprefixer";
 import csso from "gulp-csso";
@@ -20,7 +20,7 @@ const stylesBuild = () =>
           title: "Scss",
           message: error,
         })),
-      })
+      }),
     )
     .pipe(sass())
     .pipe(
@@ -28,14 +28,14 @@ const stylesBuild = () =>
         config.isProd,
         autoPrefixer({
           cascade: true,
-        })
-      )
+        }),
+      ),
     )
     .pipe(
       rename({
         suffix: ".min",
         dirname: "",
-      })
+      }),
     )
     .pipe(csso())
     .pipe(dest(config.styles.dest, { sourcemaps: config.isDev }));
