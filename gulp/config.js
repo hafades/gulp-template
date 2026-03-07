@@ -1,8 +1,7 @@
-const sourceFolder = './source';
-const buildFolder = './build';
+const sourceFolder = "./source";
+const buildFolder = "./build";
 
-const config  = {
-
+const config = {
   clean: {
     build: [buildFolder],
   },
@@ -46,8 +45,14 @@ const config  = {
       `${sourceFolder}/components/**/*.pug`,
       `${sourceFolder}/blocks/**/*.pug`,
       `${sourceFolder}/data/**/*.pug`,
-      `${sourceFolder}/config/pug/**/*.pug`
+      `${sourceFolder}/config/pug/**/*.pug`,
     ],
+    components: {
+      dir: `${sourceFolder}/components`,
+      ext: "pug",
+      outputFile: `${sourceFolder}/config/pug/_components.pug`,
+      template: (filePath) => `include ../../components/${filePath}\n`,
+    },
   },
 
   styles: {
@@ -57,7 +62,7 @@ const config  = {
       `${sourceFolder}/pages/**/*.scss`,
       `${sourceFolder}/components/**/*.scss`,
       `${sourceFolder}/blocks/**/*.scss`,
-      `${sourceFolder}/config/styles/**/*.scss`
+      `${sourceFolder}/config/styles/**/*.scss`,
     ],
   },
 
@@ -67,8 +72,8 @@ const config  = {
     watch: `${sourceFolder}/**/*.js`,
   },
 
-	setEnv() {
-    this.isBuild = process.argv.includes('build');
+  setEnv() {
+    this.isBuild = process.argv.includes("build");
     this.isDev = !this.isBuild;
   },
 };
