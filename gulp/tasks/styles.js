@@ -9,6 +9,7 @@ import gulpif from "gulp-if";
 import rename from "gulp-rename";
 import { serverReload } from "./server.js";
 import config from "../config.js";
+import autoImport from "../helpers/autoImport.js";
 
 const sass = gulpSass(dartSass);
 
@@ -40,8 +41,24 @@ const stylesBuild = () =>
     .pipe(csso())
     .pipe(dest(config.styles.dest, { sourcemaps: config.isDev }));
 
-const stylesWatch = () => {
-  watch(config.styles.watch, series(stylesBuild, serverReload));
+const stylesUi = (callback) => {
+  autoImport({
+    dir: config.styles.ui.dir,
+    ext: config.styles.ui.ext,
+    outputFile: config.styles.ui.outputFile,
+    template: config.styles.ui.template,
+  });
+
+  callback();
 };
 
-export { stylesBuild, stylesWatch };
+const stylesWatch = () => {
+  watch(config.styles.watch, series(stylesBuild, serverReload));
+  watch(
+    `${config.styles.ui.dir}/**/*.${config.styles.ui.ext}`,
+    { events: ["add", "addDir", "unlink", "unlinkDir"] },
+    series(stylesUi),
+  );
+};
+
+export { stylesBuild, stylesUi, stylesWatch };

@@ -47,6 +47,12 @@ const config = {
       `${sourceFolder}/data/**/*.pug`,
       `${sourceFolder}/config/pug/**/*.pug`,
     ],
+    ui: {
+      dir: `${sourceFolder}/ui`,
+      ext: "pug",
+      outputFile: `${sourceFolder}/config/pug/_ui.pug`,
+      template: (filePath) => `include ../../ui/${filePath}\n`,
+    },
     components: {
       dir: `${sourceFolder}/components`,
       ext: "pug",
@@ -64,6 +70,12 @@ const config = {
       `${sourceFolder}/blocks/**/*.scss`,
       `${sourceFolder}/config/styles/**/*.scss`,
     ],
+    ui: {
+      dir: `${sourceFolder}/ui`,
+      ext: "scss",
+      outputFile: `${sourceFolder}/config/styles/_ui.scss`,
+      template: (filePath) => `@use "../../ui/${filePath}";\n`,
+    },
   },
 
   scripts: {

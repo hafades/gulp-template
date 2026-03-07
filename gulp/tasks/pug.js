@@ -41,6 +41,17 @@ const pugComponents = (callback) => {
   callback();
 };
 
+const pugUi = (callback) => {
+  autoImport({
+    dir: config.pug.ui.dir,
+    ext: config.pug.ui.ext,
+    outputFile: config.pug.ui.outputFile,
+    template: config.pug.ui.template,
+  });
+
+  callback();
+};
+
 const pugWatch = () => {
   watch(config.pug.watch, series(pugBuild, serverReload));
   watch(
@@ -48,6 +59,11 @@ const pugWatch = () => {
     { events: ["add", "addDir", "unlink", "unlinkDir"] },
     series(pugComponents),
   );
+  watch(
+    `${config.pug.ui.dir}/**/*.${config.pug.ui.ext}`,
+    { events: ["add", "addDir", "unlink", "unlinkDir"] },
+    series(pugUi),
+  );
 };
 
-export { pugBuild, pugComponents, pugWatch };
+export { pugBuild, pugComponents, pugUi, pugWatch };
