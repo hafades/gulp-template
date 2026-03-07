@@ -62,7 +62,10 @@ const config = {
   },
 
   styles: {
-    src: `${sourceFolder}/pages/**/*.scss`,
+    src: [
+      `${sourceFolder}/pages/**/*.scss`,
+      `${sourceFolder}/config/styles/styles.scss`,
+    ],
     dest: `${buildFolder}/css`,
     watch: [
       `${sourceFolder}/pages/**/*.scss`,
