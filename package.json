@@ -1,7 +1,7 @@
 {
   "name": "gulp-template",
   "version": "0.0.1",
-  "description": "Стартовая сборка для html-вёрски",
+  "description": "Стартовая сборка для html-вёрстки",
   "author": "Hafades",
   "type": "module",
   "scripts": {
