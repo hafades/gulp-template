@@ -82,7 +82,10 @@ const config = {
   },
 
   scripts: {
-    src: `${sourceFolder}/pages/**/*.js`,
+    src: [
+      `${sourceFolder}/pages/**/*.js`,
+      `${sourceFolder}/config/scripts/scripts.js`,
+    ],
     dest: `${buildFolder}/js`,
     watch: `${sourceFolder}/**/*.js`,
   },
