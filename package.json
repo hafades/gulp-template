@@ -34,6 +34,7 @@
     "gulp-pug": "5.0.0",
     "gulp-rename": "2.1.0",
     "gulp-sass": "6.0.1",
+    "gulp-svg-sprite": "^2.0.3",
     "husky": "9.1.7",
     "lint-staged": "16.2.7",
     "pug-lint": "2.7.0",

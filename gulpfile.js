@@ -5,15 +5,22 @@ import { copyBuild, copyWatch } from "./gulp/tasks/copy.js";
 import { emailsBuild, emailsWatch } from "./gulp/tasks/emails.js";
 import { imagesBuild, imagesWatch } from "./gulp/tasks/images.js";
 import { pugBuild, pugComponents, pugUi, pugWatch } from "./gulp/tasks/pug.js";
-import { stylesBuild, stylesUi, stylesWatch } from "./gulp/tasks/styles.js";
+import {
+  stylesBuild,
+  stylesUi,
+  stylesIcons,
+  stylesWatch,
+} from "./gulp/tasks/styles.js";
 import { scriptsBuild, scriptsWatch } from "./gulp/tasks/scripts.js";
+import { svgSpriteBuild, svgSpriteWatch } from "./gulp/tasks/sprites.js";
 import config from "./gulp/config.js";
 
 config.setEnv();
 
 export const build = series(
   clean,
-  parallel(pugComponents, pugUi, stylesUi),
+  parallel(pugComponents, pugUi, stylesUi, svgSpriteBuild),
+  parallel(stylesIcons),
   parallel(
     copyBuild,
     emailsBuild,
@@ -34,5 +41,6 @@ export const dev = series(
     pugWatch,
     stylesWatch,
     scriptsWatch,
+    svgSpriteWatch,
   ),
 );

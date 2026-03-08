@@ -70,6 +70,7 @@ const config = {
     watch: [
       `${sourceFolder}/pages/**/*.scss`,
       `${sourceFolder}/components/**/*.scss`,
+      `${sourceFolder}/ui/**/*.scss`,
       `${sourceFolder}/blocks/**/*.scss`,
       `${sourceFolder}/config/styles/**/*.scss`,
     ],
@@ -79,6 +80,20 @@ const config = {
       outputFile: `${sourceFolder}/config/styles/_ui.scss`,
       template: (filePath) => `@use "../../ui/${filePath}";\n`,
     },
+    icons: {
+      dir: `${sourceFolder}/config/styles/_icons`,
+      ext: "scss",
+      outputFile: `${sourceFolder}/config/styles/_icons.scss`,
+      template: (filePath) => `@use "./_icons/${filePath}";\n`,
+    },
+  },
+
+  svgSprites: {
+    src: `${sourceFolder}/assets/icons`,
+    dest: `${buildFolder}/images`,
+    watch: `${sourceFolder}/assets/icons`,
+    spritesFolder: `${sourceFolder}/config/styles/_icons`,
+    icons: `${sourceFolder}/config/styles/_icons.scss`,
   },
 
   scripts: {

@@ -52,6 +52,17 @@ const stylesUi = (callback) => {
   callback();
 };
 
+const stylesIcons = (callback) => {
+  autoImport({
+    dir: config.styles.icons.dir,
+    ext: config.styles.icons.ext,
+    outputFile: config.styles.icons.outputFile,
+    template: config.styles.icons.template,
+  });
+
+  callback();
+};
+
 const stylesWatch = () => {
   watch(config.styles.watch, series(stylesBuild, serverReload));
   watch(
@@ -61,4 +72,4 @@ const stylesWatch = () => {
   );
 };
 
-export { stylesBuild, stylesUi, stylesWatch };
+export { stylesBuild, stylesUi, stylesIcons, stylesWatch };

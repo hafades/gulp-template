@@ -1,2 +1,13 @@
-mixin icon
-  span.icon&attributes(attributes) icon
+mixin icon(name, param)
+  -
+    //- name                              название иконки
+    const paramDefault = {
+      type: 'default-mono',           //- название файла спрайта (string)
+    }
+
+    const icon = { name, ...paramDefault, ...param}
+
+  span(
+    class= "icon"
+    class= `icon--${icon.type}-${icon.name}`
+  )&attributes(attributes)
