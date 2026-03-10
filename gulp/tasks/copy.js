@@ -5,7 +5,7 @@ import { serverReload } from './server.js';
 import config from '../config.js';
 
 const copyBuild = () => (
-  src(config.copy.src, { base: config.copy.base, since: lastRun(copyBuild) })
+  src(config.copy.src, { base: config.copy.base, since: lastRun(copyBuild), encoding: false })
     .pipe(dest(config.copy.dest))
 );
 
