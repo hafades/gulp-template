@@ -1,0 +1,13 @@
+/build/
+/node_modules/
+
+*.sublime*
+.DS_Store
+.idea/
+.vscode/
+.vs/
+.fleet/
+.history/
+
+.npm-debug.*
+Thumbs.db

@@ -1,0 +1,32 @@
+{
+  "name": "gulp-template",
+  "version": "0.0.1",
+  "description": "Gulp-template",
+  "author": "Andrey Bondarenkov",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hafades/gulp-template.git"
+  },
+  "scripts": {
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "eslint .",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.8.1",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^17.11.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.3.0",
+    "prettier": "3.9.6"
+  }
+}
